@@ -1,0 +1,1 @@
+export { TablaInventario } from "./TablaInventario";
