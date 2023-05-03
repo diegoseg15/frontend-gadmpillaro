@@ -3,16 +3,44 @@ import { Link } from "react-router-dom";
 
 export function Sidebar() {
   const [openSubMenu, setOpenSubMenu] = useState("");
-  function stateSubMenu(event, state) {
+  const TipoInventario = [
+    {
+      tipo: "bodega",
+      codigo: "003",
+    },
+    {
+      tipo: "cocina",
+      codigo: "004",
+    },
+    {
+      tipo: "medicina",
+      codigo: "005",
+    },
+  ];
+  function stateSubMenu(event, cod) {
     event.preventDefault();
-    state === openSubMenu ? setOpenSubMenu("") : setOpenSubMenu(state);
+    cod === openSubMenu ? setOpenSubMenu("") : setOpenSubMenu(cod);
   }
+
   return (
     <div>
-      <aside class="flex flex-row lg:flex-col lg:w-auto w-64 h-screen px-5 py-8 overflow-y-auto border-r rtl:border-r-0 rtl:border-l bg-primary border-gray-700">
+      <aside class="flex flex-col lg:w-auto w-52 h-screen px-5 py-8 overflow-y-auto border-r rtl:border-r-0 rtl:border-l bg-primary border-gray-700">
         {/* <Link to="/">
           <img class="w-auto h-7" src="" alt="" />
         </Link> */}
+        <div className="flex flex-wrap justify-center">
+          <img
+            class="w-24 h-24 mb-3 rounded-full shadow-lg"
+            src="/docs/images/people/profile-picture-3.jpg"
+            alt="Bonnie image"
+          />
+          <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
+            Diego Segovia
+          </h5>
+          <span class="text-sm text-gray-500 dark:text-gray-400">
+            Administrador
+          </span>
+        </div>
 
         <div class="flex flex-row lg:flex-col justify-between flex-1 mt-6">
           <nav class="-mx-3 space-y-6">
@@ -43,235 +71,94 @@ export function Sidebar() {
               <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">
                 Inventarios
               </label>
-
-              <button
-                class="flex items-center w-full px-3 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                onClick={(event) => stateSubMenu(event, "bodega")}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
-                  />
-                </svg>
-
-                <span class="mx-2 text-sm font-medium">Bodega</span>
-              </button>
-              <div
-                className={
-                  openSubMenu === "bodega"
-                    ? "bg-slate-600 rounded-lg"
-                    : "hidden"
-                }
-              >
-                <Link
-                  class="flex items-center pl-8 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  to="/inventario-bodega"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+              {TipoInventario.map((invTipo) => (
+                <>
+                  <button
+                    class="flex items-center w-full px-3 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                    onClick={(event) => stateSubMenu(event, invTipo.codigo)}
                   >
-                    <rect
-                      x="3"
-                      y="4"
-                      width="14"
-                      height="14"
-                      rx="2"
-                      ry="2"
-                    ></rect>
-                    <line x1="4" y1="8" x2="16" y2="8"></line>
-                    <line x1="4" y1="12" x2="16" y2="12"></line>
-                    <line x1="8" y1="16" x2="8" y2="12"></line>
-                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                  </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
+                      />
+                    </svg>
 
-                  <span class="mx-2 text-sm font-medium">Existencia</span>
-                </Link>
-                <Link
-                  class="flex items-center pl-8 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  to="/formulario-bodega"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-5 h-5"
+                    <span class="mx-2 text-sm font-medium">
+                      {invTipo.tipo[0].toUpperCase() +
+                        invTipo.tipo.substring(1)}
+                    </span>
+                  </button>
+                  <div
+                    className={
+                      openSubMenu === invTipo.codigo
+                        ? "bg-slate-600 rounded-lg"
+                        : "hidden"
+                    }
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"
-                    />
-                  </svg>
+                    <Link
+                      class="flex items-center pl-8 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                      to={`/inventario/${invTipo.tipo.toLowerCase()}`}
+                    >
+                      <svg
+                        class="w-5 h-5"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <rect
+                          x="3"
+                          y="4"
+                          width="14"
+                          height="14"
+                          rx="2"
+                          ry="2"
+                        ></rect>
+                        <line x1="4" y1="8" x2="16" y2="8"></line>
+                        <line x1="4" y1="12" x2="16" y2="12"></line>
+                        <line x1="8" y1="16" x2="8" y2="12"></line>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                      </svg>
 
-                  <span class="mx-2 text-sm font-medium">Nuevo Producto</span>
-                </Link>
-              </div>
+                      <span class="mx-2 text-sm font-medium">Existencia</span>
+                    </Link>
+                    <Link
+                      class="flex items-center pl-8 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                      to={`/formulario/${invTipo.tipo.toLowerCase()}`}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-5 h-5"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"
+                        />
+                      </svg>
 
-              <button
-                className="flex items-center w-full px-3 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                onClick={(event) => stateSubMenu(event, "cocina")}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  className="w-5 h-5 fill-white"
-                >
-                  <path d="M0 0h24v24H0z" fill="none" />
-                  <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z" />
-                </svg>
-
-                <span class="mx-2 text-sm font-medium">Cocina</span>
-              </button>
-
-              <div
-                className={
-                  openSubMenu === "cocina"
-                    ? "bg-slate-600 rounded-lg"
-                    : "hidden"
-                }
-              >
-                <Link
-                  class="flex items-center pl-8 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  to="/inventario-cocina"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <rect
-                      x="3"
-                      y="4"
-                      width="14"
-                      height="14"
-                      rx="2"
-                      ry="2"
-                    ></rect>
-                    <line x1="4" y1="8" x2="16" y2="8"></line>
-                    <line x1="4" y1="12" x2="16" y2="12"></line>
-                    <line x1="8" y1="16" x2="8" y2="12"></line>
-                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                  </svg>
-
-                  <span class="mx-2 text-sm font-medium">Existencia</span>
-                </Link>
-                <Link
-                  class="flex items-center pl-8 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  to="/formulario-cocina"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-5 h-5"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"
-                    />
-                  </svg>
-
-                  <span class="mx-2 text-sm font-medium">Nuevo Producto</span>
-                </Link>
-              </div>
-
-              <button
-                class="flex items-center w-full px-3 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                onClick={(event) => stateSubMenu(event, "medicina")}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 96 960 960"
-                  className="w-5 h-5 fill-white"
-                >
-                  <path d="M450 819h60V699h120v-60H510V519h-60v120H330v60h120v120ZM140 976q-24 0-42-18t-18-42V396q0-24 18-42t42-18h180V236q0-24 18-42t42-18h200q24 0 42 18t18 42v100h180q24 0 42 18t18 42v520q0 24-18 42t-42 18H140Zm0-60h680V396H140v520Zm240-580h200V236H380v100ZM140 916V396v520Z" />
-                </svg>
-
-                <span class="mx-2 text-sm font-medium">Medicinas</span>
-              </button>
-
-              <div
-                className={
-                  openSubMenu === "medicina"
-                    ? "bg-slate-600 rounded-lg"
-                    : "hidden"
-                }
-              >
-                <Link
-                  class="flex items-center pl-8 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  to="/inventario-medicinas"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <rect
-                      x="3"
-                      y="4"
-                      width="14"
-                      height="14"
-                      rx="2"
-                      ry="2"
-                    ></rect>
-                    <line x1="4" y1="8" x2="16" y2="8"></line>
-                    <line x1="4" y1="12" x2="16" y2="12"></line>
-                    <line x1="8" y1="16" x2="8" y2="12"></line>
-                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                  </svg>
-
-                  <span class="mx-2 text-sm font-medium">Existencia</span>
-                </Link>
-                <Link
-                  class="flex items-center pl-8 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                  to="/formulario-medicinas"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-5 h-5"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"
-                    />
-                  </svg>
-
-                  <span class="mx-2 text-sm font-medium">Nuevo Producto</span>
-                </Link>
-              </div>
+                      <span class="mx-2 text-sm font-medium">
+                        Nuevo Producto
+                      </span>
+                    </Link>
+                  </div>
+                </>
+              ))}
             </div>
 
             <div class="space-y-3 ">

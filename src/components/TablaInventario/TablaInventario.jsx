@@ -1,10 +1,10 @@
 import React from "react";
 
 export function TablaInventario(props) {
-  const { head, body } = props;
+  const { head, bodyt } = props;
   return (
     <div className="overflow-x-auto shadow-md rounded-lg">
-      <table className="w-full text-sm text-left text-gray-400">
+      <table className="w-full text-sm text-left">
         <thead className="text-xs uppercase text-gray-400">
           <tr>
             {head.map((datahead) => (
@@ -19,19 +19,23 @@ export function TablaInventario(props) {
           </tr>
         </thead>
         <tbody>
-          {body.map((index, databody) => (
-            <tr key={index} className="border border-gray-700 rounded-lg">
+          {bodyt.map((databody) => (
+            <tr className="border border-gray-700 rounded-lg">
               <th
                 scope="row"
                 className="px-6 py-4 font-medium whitespace-nowrap text-white bg-gray-800"
               >
-                Apple MacBook Pro 17'
+                {databody.descripcion}
               </th>
-              <td className="px-6 py-4">Silver</td>
-              <td className="px-6 py-4 bg-gray-800">Laptop</td>
-              <td className="px-6 py-4">$2999</td>
-              <td className="px-6 py-4 bg-gray-800">Laptop</td>
-              <td className="px-6 py-4">$2999</td>
+              <td className="px-6 py-4">{databody.especificaciones}</td>
+              <td className="px-6 py-4 bg-gray-800 text-white">
+                {databody.tipo}
+              </td>
+              <td className="px-6 py-4">{databody.cantidad}</td>
+              <td className="px-6 py-4 bg-gray-800 text-white">
+                {databody.consumoM}
+              </td>
+              <td className="px-6 py-4">${databody.suma}</td>
             </tr>
           ))}
         </tbody>

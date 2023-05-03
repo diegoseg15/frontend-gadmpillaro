@@ -21,29 +21,12 @@ export default function AdminRoutes() {
     <Routes>
       <Route path="/" element={loadLayout(AdminLayout, Home)} />
       <Route
-        path="/inventario-bodega"
+        path="/inventario/:id"
         element={loadLayout(AdminLayout, InventarioBodega)}
       />
       <Route
-        path="/inventario-cocina"
-        element={loadLayout(AdminLayout, InventarioCocina)}
-      />
-      <Route
-        path="/inventario-medicinas"
-        element={loadLayout(AdminLayout, InventarioMedicina)}
-      />
-      <Route path="/" element={loadLayout(AdminLayout, Home)} />
-      <Route
-        path="/formulario-bodega"
+        path="/formulario/:id"
         element={loadLayout(AdminLayout, FormularioBodega)}
-      />
-      <Route
-        path="/formulario-cocina"
-        element={loadLayout(AdminLayout, FormularioCocina)}
-      />
-      <Route
-        path="/formulario-medicinas"
-        element={loadLayout(AdminLayout, FormularioMedicina)}
       />
     </Routes>
   );
