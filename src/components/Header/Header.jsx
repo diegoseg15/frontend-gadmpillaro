@@ -4,9 +4,9 @@ export function Header(props) {
   const { stateMenu } = props;
   return (
     <nav class="border-gray-200 bg-primary">
-      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="#" class="flex items-center">
-          <span class="self-center lg:text-2xl font-semibold whitespace-nowrap dark:text-white">
+      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto lg:p-4 p-2">
+        <a href="/" class="flex items-center">
+          <span class="self-center lg:text-2xl text-lg font-semibold whitespace-nowrap dark:text-white">
             Sistema de Inventario
           </span>
         </a>

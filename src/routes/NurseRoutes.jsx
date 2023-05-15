@@ -5,8 +5,9 @@ import { Home } from "../pages/Home";
 import InventarioBodega from "../pages/Inventarios/Bodega/Bodega";
 import FormularioBodega from "../pages/Formularios/Bodega/Bodega";
 import { Export } from "../pages/Export";
+import { NurseLayout } from "../layouts/NurseLayout";
 
-export default function AdminRoutes() {
+export default function NurseRoutes() {
   const loadLayout = (Layout, Page) => {
     return (
       <Layout>
@@ -16,19 +17,19 @@ export default function AdminRoutes() {
   };
   return (
     <Routes>
-      <Route path="/" element={loadLayout(AdminLayout, Home)} />
-      <Route
+      <Route path="/" element={loadLayout(NurseLayout, Home)} />
+      {/* <Route
         path="/inventario/:id"
-        element={loadLayout(AdminLayout, InventarioBodega)}
+        element={loadLayout(NurseLayout, InventarioBodega)}
       />
       <Route
         path="/formulario/:id"
-        element={loadLayout(AdminLayout, FormularioBodega)}
+        element={loadLayout(NurseLayout, FormularioBodega)}
       />
       <Route
         path="/exportar_proveedor/:id"
-        element={loadLayout(AdminLayout, Export)}
-      />
+        element={loadLayout(NurseLayout, Export)}
+      /> */}
     </Routes>
   );
 }

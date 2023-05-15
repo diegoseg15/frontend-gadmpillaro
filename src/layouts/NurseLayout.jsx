@@ -4,7 +4,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer/Footer";
 
 // define la función AdminLayout y recibe un objeto props
-export function AdminLayout(props) {
+export function NurseLayout(props) {
   const { children } = props; // extrae la propiedad children del objeto props y la almacena en una variable constante
   const [openMenu, setOpenMenu] = useState(false);
   function stateMenu(event) {
@@ -15,16 +15,6 @@ export function AdminLayout(props) {
   return (
     <>
       <div className="flex lg:flex-row overflow-hidden">
-        {/* Crea una rejilla con 12 columnas */}
-        <div
-          className={`lg:block ${
-            openMenu ? "absolute" : "hidden"
-          } h-screen w-60 z-10`}
-        >
-          {/* Define una columna con un ancho de 2 columnas */}
-          <Sidebar />
-          {/* Renderiza el componente Sidebar */}
-        </div>
         <div className="relative w-full h-screen">
           <div className="absolute top-0 w-full">
             <Header stateMenu={stateMenu} />
@@ -32,7 +22,7 @@ export function AdminLayout(props) {
           <div className="md:h-5/6 sm:h-4/5 h-3/4 w-full overflow-y-scroll overflow-hidden mt-16">
             {children}
           </div>
-          <div className="absolute bottom-0 w-full lg:border-hidden border-t border-gray-300">
+          <div className="absolute bottom-0 w-full">
             <Footer />
           </div>
         </div>

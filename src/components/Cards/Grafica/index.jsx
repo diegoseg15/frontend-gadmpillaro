@@ -1,0 +1,1 @@
+export { Grafica } from "./Grafica";

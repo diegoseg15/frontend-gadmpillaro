@@ -4,8 +4,19 @@ import LogoPucesa from "../../assets/imgs/logoPucesa.png";
 export function Footer() {
   return (
     <footer class="p-4 shadow md:flex md:items-center md:justify-between bg-white">
-      <span class="flex lg:flex-row flex-col text-sm text-gray-800 sm:text-center">
-        <img className="h-8 w-auto" src={LogoPucesa} />
+      <span class="flex lg:flex-row flex-col text-sm text-gray-800 items-center">
+        <a
+          className="pl-2 pr-3"
+          href="https://www.pucesa.edu.ec"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            className="h-8 w-auto"
+            src={LogoPucesa}
+            alt="Logo de la Pontificia Universidad Catolica del Ecuador Sede Amabto"
+          />
+        </a>
       </span>
       <div class="flex flex-wrap items-center mt-3 text-sm text-gray-800 sm:mt-0">
         <svg
@@ -24,6 +35,7 @@ export function Footer() {
           className="pl-2 pr-3"
           href="https://www.instagram.com/diegoseg_15/"
           target="_blank"
+          rel="noreferrer"
         >
           diegoseg_15
         </a>
@@ -43,6 +55,7 @@ export function Footer() {
           className="pl-2 pr-3"
           href="https://www.instagram.com/marcelorobayoo/"
           target="_blank"
+          rel="noreferrer"
         >
           marcelorobayoo
         </a>
@@ -62,6 +75,7 @@ export function Footer() {
           className="pl-2 pr-3"
           href="https://www.instagram.com/emmanuelrq2001/"
           target="_blank"
+          rel="noreferrer"
         >
           emmanuelrq2001
         </a>

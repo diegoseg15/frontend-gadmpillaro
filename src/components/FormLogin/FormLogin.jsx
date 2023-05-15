@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { EmpresasList } from "../../API/Empresas";
+import EscudoPillaro from "../../assets/imgs/EscudoPillaro.jpg"
 
 export function FormLogin() {
   const [empresas, setEmpresas] = useState([]);
 
   // const empresa = "GADM PILLARO";
+
+  // codigo de usuario
+  // nombre de usuario
 
   useEffect(() => {
     fetch("http://localhost/backend/cargar_empresa.php")
@@ -19,7 +23,7 @@ export function FormLogin() {
       <div className="flex pb-10 justify-center">
         <img
           className="w-28 h-auto"
-          src="https://www.pillaro.gob.ec/wp-content/uploads/2019/06/ESCUDO.jpg"
+          src={EscudoPillaro}
         />
       </div>
       <div className="text-center">

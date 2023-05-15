@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import FotoPerfil from "../../assets/imgs/EscudoPillaro.jpg";
 
 export function Sidebar() {
   const [openSubMenu, setOpenSubMenu] = useState("");
@@ -31,8 +32,8 @@ export function Sidebar() {
         <div className="flex flex-wrap justify-center">
           <img
             class="w-24 h-24 mb-3 rounded-full shadow-lg"
-            src="/docs/images/people/profile-picture-3.jpg"
-            alt="Bonnie image"
+            src={FotoPerfil}
+            alt="imagen de perfil"
           />
           <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
             Diego Segovia
@@ -156,6 +157,27 @@ export function Sidebar() {
                         Nuevo Producto
                       </span>
                     </Link>
+                    <Link
+                      class="flex items-center pl-8 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                      to={`/exportar_proveedor/${invTipo.tipo.toLowerCase()}`}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
+                        />
+                      </svg>
+
+                      <span class="mx-2 text-sm font-medium">Proveedor</span>
+                    </Link>
                   </div>
                 </>
               ))}
@@ -163,7 +185,7 @@ export function Sidebar() {
 
             <div class="space-y-3 ">
               <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">
-                Documentación
+                Varios
               </label>
 
               <Link
@@ -176,16 +198,38 @@ export function Sidebar() {
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="w-5 h-5"
+                  class="w-6 h-6"
                 >
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z"
+                    d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
                   />
                 </svg>
 
                 <span class="mx-2 text-sm font-medium">Registros</span>
+              </Link>
+
+              <Link
+                class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                href="#"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+                  />
+                </svg>
+
+                <span class="mx-2 text-sm font-medium">Manual</span>
               </Link>
 
               <Link
@@ -212,8 +256,26 @@ export function Sidebar() {
                   />
                 </svg>
 
-                <span class="mx-2 text-sm font-medium">Manual</span>
+                <span class="mx-2 text-sm font-medium">Configuración</span>
               </Link>
+              <button class="flex w-full items-center px-3 py-2 text-gray-600 transition-colors duration-300 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M304 336v40a40 40 0 01-40 40H104a40 40 0 01-40-40V136a40 40 0 0140-40h152c22.09 0 48 17.91 48 40v40M368 336l80-80-80-80M176 256h256"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="32"
+                  />
+                </svg>
+
+                <span class="mx-2 text-sm font-medium">Cerrar Sesión</span>
+              </button>
             </div>
           </nav>
         </div>

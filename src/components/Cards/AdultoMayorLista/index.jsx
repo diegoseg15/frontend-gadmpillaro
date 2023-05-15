@@ -1,0 +1,1 @@
+export { AdultoMayor } from "./AdultoMayor";
