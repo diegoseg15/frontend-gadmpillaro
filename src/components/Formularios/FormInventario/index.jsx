@@ -1,0 +1,1 @@
+export { FormInventario } from "./FormInventario";

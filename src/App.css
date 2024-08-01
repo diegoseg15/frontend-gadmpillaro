@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.SiderbarScroll::-webkit-scrollbar {
+  width: 7px;
+  background: #374151;
+}
+
+.SiderbarScroll::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 5px;
+}
+
+.childbarscroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.childbarscroll::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 5px;
+}

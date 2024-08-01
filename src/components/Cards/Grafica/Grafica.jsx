@@ -1,33 +1,37 @@
 import React from "react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
 
-export function Grafica() {
+export function Grafica(props) {
+  const { data, idArticulos } = props;
   return (
     <>
-      <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  2xl:col-span-2">
-        <div class="flex items-center justify-between mb-4">
-          <div class="flex-shrink-0">
-            <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">
-              $45,385
+      <div className="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  2xl:col-span-2">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex-shrink-0">
+            <span className="capitalize ext-2xl sm:text-3xl leading-none font-bold text-gray-900">
+              {idArticulos.toLowerCase()}
             </span>
-            <h3 class="text-base font-normal text-gray-500">Egresos</h3>
-          </div>
-          <div class="flex items-center justify-end flex-1 text-green-500 text-base font-bold">
-            12.5%
-            <svg
-              class="w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
+            <h3 className="text-base font-normal text-gray-500">Egresos</h3>
           </div>
         </div>
-        <div id="main-chart"></div>
+        <div id="main-chart" className="pt-10">
+          <LineChart width={500} height={300} data={data}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="codart" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Line type="monotone" dataKey="ultcos" stroke="#8884d8" />
+          </LineChart>
+        </div>
       </div>
     </>
   );

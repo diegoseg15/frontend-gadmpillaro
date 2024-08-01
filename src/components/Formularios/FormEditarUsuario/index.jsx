@@ -1,0 +1,1 @@
+export { FormEditarUsuario } from "./FormEditarUsuario";

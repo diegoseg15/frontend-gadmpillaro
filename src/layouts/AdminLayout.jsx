@@ -29,7 +29,7 @@ export function AdminLayout(props) {
           <div className="absolute top-0 w-full">
             <Header stateMenu={stateMenu} />
           </div>
-          <div className="md:h-5/6 sm:h-4/5 h-3/4 w-full overflow-y-scroll overflow-hidden mt-16">
+          <div className="childbarscroll md:h-5/6 sm:h-4/5 h-3/4 w-full overflow-y-scroll overflow-hidden mt-16">
             {children}
           </div>
           <div className="absolute bottom-0 w-full lg:border-hidden border-t border-gray-300">

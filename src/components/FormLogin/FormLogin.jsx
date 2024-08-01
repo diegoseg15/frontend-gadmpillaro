@@ -1,30 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { EmpresasList } from "../../API/Empresas";
-import EscudoPillaro from "../../assets/imgs/EscudoPillaro.jpg"
+import EscudoPillaro from "../../assets/imgs/EscudoPillaro.png";
 
-export function FormLogin() {
-  const [empresas, setEmpresas] = useState([]);
-
-  // const empresa = "GADM PILLARO";
-
-  // codigo de usuario
-  // nombre de usuario
-
-  useEffect(() => {
-    fetch("http://localhost/backend/cargar_empresa.php")
-      .then((response) => response.json())
-      .then((data) => setEmpresas(data));
-  }, []);
-
-  console.log(empresas);
+export function FormLogin(props) {
+  const { handleSubmitLogin, formData, setFormData } = props;
 
   return (
     <>
       <div className="flex pb-10 justify-center">
-        <img
-          className="w-28 h-auto"
-          src={EscudoPillaro}
-        />
+        <img className="w-28 h-auto" src={EscudoPillaro} />
       </div>
       <div className="text-center">
         <h2 className="text-4xl font-bold text-center text-gray-700">
@@ -38,44 +21,42 @@ export function FormLogin() {
       <div className="mt-8 px-10">
         <form>
           <div>
-            <select className="mb-2 block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40">
-              <option disabled selected>Seleciona la Empresa</option>
-              {empresas.map((option) => (
-                <option key={option.CODEMP}>{option.NOMEMP}</option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label for="email" className="block mb-2 text-sm text-gray-600">
+            <label htmlFor="email" className="block mb-2 text-sm text-gray-600">
               Usuario
             </label>
             <input
               type="text"
-              name="tb_user"
               id="user"
               placeholder="Tu Usuario"
               className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+              onChange={(event) =>
+                setFormData({ ...formData, cod_usu: event.target.value })
+              }
             />
           </div>
 
           <div className="mt-6">
             <div className="flex justify-between mb-2">
-              <label for="password" className="text-sm text-gray-600">
+              <label htmlFor="password" className="text-sm text-gray-600">
                 Contraseña
               </label>
             </div>
-
             <input
               type="password"
-              name="tb_password"
               id="password"
-              placeholder="Tu Contaseña"
+              placeholder="•••••••••"
               className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+              onChange={(event) =>
+                setFormData({ ...formData, passwo_usu: event.target.value })
+              }
             />
           </div>
-          
+
           <div className="mt-6">
-            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+            <button
+              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+              onClick={(event) => handleSubmitLogin(event)}
+            >
               Iniciar Sesión
             </button>
           </div>

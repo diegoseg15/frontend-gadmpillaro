@@ -1,13 +1,12 @@
 import "./App.css";
+import Cookies from "universal-cookie";
 import { BrowserRouter } from "react-router-dom";
 import AdminRoutes from "./routes/AdminRoutes";
 import LoginRoutes from "./routes/LoginRoutes";
 import NurseRoutes from "./routes/NurseRoutes";
 
 function App() {
-  // if (window.location.pathname !== "/login") window.location.href = "/login";
-  const login = true;
-  const rol = "admin";
+  const cookies = new Cookies();
   function NoLogIn() {
     if (window.location.pathname !== "/login") window.location.href = "/login";
     return <LoginRoutes />;
@@ -16,9 +15,9 @@ function App() {
     if (window.location.pathname === "/login") window.location.href = "/";
     return (
       <>
-        {rol === "admin" ? (
+        {cookies.get("cargo") === "ADMINISTRADOR" ? (
           <AdminRoutes />
-        ) : rol === "enfermero" ? (
+        ) : cookies.get("cargo") === "ENFERMERO" ? (
           <NurseRoutes />
         ) : (
           ""
@@ -28,7 +27,9 @@ function App() {
   }
   return (
     <>
-      <BrowserRouter>{login === true ? <LogIn /> : <NoLogIn />}</BrowserRouter>
+      <BrowserRouter>
+        {cookies.get("login") === "true-log" ? <LogIn /> : <NoLogIn />}
+      </BrowserRouter>
     </>
   );
 }
