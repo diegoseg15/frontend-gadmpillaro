@@ -1,3 +1,4 @@
+![Aplicación para el GADM de Pillaro](https://github.com/diegoseg15/frontend-gadmpillaro/blob/main/src/assets/imgs/Captura%20de%20pantalla%202023-03-28%20183042.png?raw=true)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
