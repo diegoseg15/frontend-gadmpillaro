@@ -1,73 +1,33 @@
 ![Aplicación para el GADM de Pillaro](https://github.com/diegoseg15/frontend-gadmpillaro/blob/main/src/assets/imgs/Captura%20de%20pantalla%202023-03-28%20183042.png?raw=true)
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Aplicación de Inventario para el GADM de Pillaro
 
-## Available Scripts
+Esta es una aplicación de inventario desarrollada para un ancianato del GADM de Pillaro - Ecuador. Permite gestionar los usuarios por roles y facilitar el control de inventario.
 
-In the project directory, you can run:
+## Tecnologías Utilizadas
+- React (Create React App)
+- TailwindCSS
+- JavaScript
 
-### `yarn start`
+## Instalación
+Para instalar y ejecutar el proyecto localmente, sigue estos pasos:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+# Clonar el repositorio
+git clone https://github.com/diegoseg15/frontend-gadmpillaro.git
+cd frontend-gadmpillaro
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Instalar dependencias
+yarn install
 
-### `yarn test`
+# Ejecutar la aplicación
+yarn start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación en funcionamiento.
 
-### `yarn build`
+## Licencia
+Este proyecto está licenciado bajo la licencia MIT.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# frontend-gadmpillaro
-# frontend-gadmpillaro
+## Contribución
+Si deseas contribuir, por favor crea un fork del repositorio y envía un pull request con tus mejoras.
